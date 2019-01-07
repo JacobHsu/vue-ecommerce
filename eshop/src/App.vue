@@ -10,6 +10,12 @@ import HelloWorld from './components/HelloWorld'
 
 export default {
   name: 'App',
+  created() {
+    const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products`; 
+    this.axios.get(api).then((response) => {
+      console.log(111,response.data)
+    })
+  },
   components: {
     HelloWorld
   }
