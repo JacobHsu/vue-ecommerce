@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <a href="#" @click.prevent="logout">登出</a>
     <ul>
       <li>
         <a
@@ -89,6 +89,18 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    logout() {
+      const api = `${process.env.APIPATH}/logout`; 
+      const vm = this;
+      this.$http.post(api).then((response) => {
+        console.log(response.data)
+        if(response.data.success) {
+          vm.$router.push('/login');
+        }
+      })
     }
   }
 }
