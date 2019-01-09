@@ -11,4 +11,4 @@
 Vue Router [Navigation Guards](https://router.vuejs.org/guide/advanced/navigation-guards.html)  
 
 [Bootstrap 4](https://getbootstrap.com/)  
-examples [Sign-in](https://getbootstrap.com/docs/4.2/examples/sign-in/)
+examples [Sign-in](https://getbootstrap.com/docs/4.2/examples/sign-in/) [Dashboard](https://getbootstrap.com/docs/4.2/examples/dashboard/)  
