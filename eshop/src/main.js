@@ -9,11 +9,13 @@ import VueAxios from 'vue-axios'
 import 'bootstrap'
 import router from './router'
 import './bus'
+import Pagination from './components/Pagination'
 
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios);
 Vue.component('Loading',Loading); //全域啟用
+Vue.component('Pagination', Pagination);
 
 axios.defaults.withCredentials = true;
 /* eslint-disable no-new */
