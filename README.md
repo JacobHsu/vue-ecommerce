@@ -14,3 +14,6 @@ Vue Router [Navigation Guards](https://router.vuejs.org/guide/advanced/navigatio
 [Bootstrap 4](https://getbootstrap.com/)  
 examples [Sign-in](https://getbootstrap.com/docs/4.2/examples/sign-in/) [Dashboard](https://getbootstrap.com/docs/4.2/examples/dashboard/)    
 Documentation [Modal](https://getbootstrap.com/docs/4.2/components/modal/)  
+
+## References 
+[FormData](https://developer.mozilla.org/zh-TW/docs/Web/API/FormData)  
