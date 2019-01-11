@@ -10,12 +10,14 @@ import 'bootstrap'
 import router from './router'
 import './bus'
 import Pagination from './components/Pagination'
+import currencyFilter from './filters/currency';
 
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios);
 Vue.component('Loading',Loading); //全域啟用
 Vue.component('Pagination', Pagination);
+Vue.filter('currency',currencyFilter);
 
 axios.defaults.withCredentials = true;
 /* eslint-disable no-new */
