@@ -285,7 +285,11 @@ export default {
             vm.isLoading = false;
             if(response.data.success) {
               console.log('訂單已建立', response);
-              vm.getCart();
+              //vm.getCart();
+              if(response.data.success) {
+				      	vm.$router.push(`/customer_checkout/${response.data.orderId}`);
+              }
+                
             } else {
 				      	this.$bus.$emit('messsage:push', response.data.message, 'danger');
 				    };
