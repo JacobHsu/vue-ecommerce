@@ -12,12 +12,19 @@ import './bus'
 import Pagination from './components/Pagination'
 import currencyFilter from './filters/currency';
 
+import VeeValidate from 'vee-validate';
+import zhTWValidate from 'vee-validate/dist/locale/zh_TW';
+
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios);
+Vue.use(VeeValidate);
+VeeValidate.Validator.localize('zh_TW', zhTWValidate);
 Vue.component('Loading',Loading); //全域啟用
 Vue.component('Pagination', Pagination);
 Vue.filter('currency',currencyFilter);
+
+
 
 axios.defaults.withCredentials = true;
 /* eslint-disable no-new */
