@@ -23,3 +23,12 @@ Documentation [Modal](https://getbootstrap.com/docs/4.2/components/modal/)  [Pag
 [vue-loading-overlay](https://github.com/ankurk91/vue-loading-overlay) 
 [Font Awesome](https://fontawesome.com/start)  [Animating Icons](https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons)    
 [vee-validate](https://baianat.github.io/vee-validate/)  
+[Unsplash](https://unsplash.com/)  
+
+# gh-pages
+
+`npm run build`輸出後，再把 dist 資料夾推到 gh-pages 分支  
+
+`git subtree push --prefix dist origin gh-pages`  
+
+http://jacobhsu.github.io/vue-ecommerce  
