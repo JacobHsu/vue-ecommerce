@@ -27,6 +27,7 @@ Documentation [Modal](https://getbootstrap.com/docs/4.2/components/modal/)  [Pag
 
 # gh-pages
 
+修改 config/index.js `assetsPublicPath` 設定
 `npm run build`輸出後，再把 dist 資料夾推到 gh-pages 分支  
 
 `git subtree push --prefix dist origin gh-pages`  
