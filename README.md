@@ -19,6 +19,7 @@ Documentation [Modal](https://getbootstrap.com/docs/4.2/components/modal/)  [Pag
 
 
 ## References 
+
 [FormData](https://developer.mozilla.org/zh-TW/docs/Web/API/FormData)  
 [vue-loading-overlay](https://github.com/ankurk91/vue-loading-overlay) 
 [Font Awesome](https://fontawesome.com/start)  [Animating Icons](https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons)    
@@ -32,4 +33,4 @@ Documentation [Modal](https://getbootstrap.com/docs/4.2/components/modal/)  [Pag
 
 `git subtree push --prefix dist origin gh-pages`  
 
-http://jacobhsu.github.io/vue-ecommerce  
+https://jacobhsu.github.io/vue-ecommerce  
