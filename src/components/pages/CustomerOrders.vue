@@ -287,7 +287,7 @@ export default {
               console.log('訂單已建立', response);
               //vm.getCart();
               if(response.data.success) {
-				      	vm.$router.push(`/customer_checkout/${response.data.orderId}`);
+				      	vm.$router.push(`/admin/customer_checkout/${response.data.orderId}`);
               }
                 
             } else {
