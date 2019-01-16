@@ -6,6 +6,7 @@ import Products from '@/components/pages/Products'
 import CustomerOrder from '@/components/pages/CustomerOrders'
 import CustomerCheckout from '@/components/pages/CustomerCheckout'
 import Home from '@/components/client/home'
+import ShopPage from '@/components/client/pages/shop_page'
 
 Vue.use(Router)
 
@@ -48,7 +49,12 @@ export default new Router({
       name: 'Home',
       component: Home,
       children: [
-
+        {
+          path: '',
+          name: 'ShopPage',
+          component: ShopPage,
+          props: true
+        },
       ],
     }
   ]
