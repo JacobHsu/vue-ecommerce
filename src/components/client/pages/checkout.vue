@@ -17,19 +17,19 @@
                 <h6 class="my-0 text-info">{{item.product.title}}</h6>
                 <span class="text-success" style="font-size: 0.5rem" v-if="item.coupon">已套用優惠券</span>
               </div>
-              <span v-if="item.product.price" class="text-dark">{{item.product.price * item.qty | currencyFilter}}</span>
-              <span v-if="!item.product.price" class="text-dark">{{item.product.origin_price * item.qty | currencyFilter}}</span>
+              <span v-if="item.product.price" class="text-dark">{{item.product.price * item.qty}}</span>
+              <span v-if="!item.product.price" class="text-dark">{{item.product.origin_price * item.qty}}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <div class="ml-auto h6">
                 <span class="text-dark">總計</span>
                 <span class="text-secondary"><small>TWD</small></span>
-                <strong>{{cart.total | currencyFilter}}</strong>
+                <strong>{{cart.total}}</strong>
               </div>
               <div v-if="cart.final_total !== cart.total" class="ml-auto h6">
                 <span class="text-success">折扣價</span>
                 <span class="text-secondary"><small>TWD</small></span>
-                <strong class="text-success">{{cart.final_total | currencyFilter}}</strong>
+                <strong class="text-success">{{cart.final_total}}</strong>
               </div>
             </li>
           </ul>
@@ -79,17 +79,16 @@
                 <label for="address" class="text-dark lead">發票收件地址</label>
                 <input type="text" class="form-control" name="address" id="address" placeholder="請填入收件地址"
                   v-model="form.user.address"
-                  v-validate="'required'"
                 >
               </div>
 
               <div class="mb-3">
                 <label for="tel" class="text-dark lead">*手機號碼</label>
-                <input type="text" class="form-control" id="tel" placeholder="請填入手機號碼"
+                <input type="text" class="form-control" name="tel" id="tel" placeholder="請填入手機號碼"
                   v-model="form.user.tel"  
                   v-validate="'required'"
-                  :class="{'is-invalid': errors.has('address')}">
-                <span class="text-danger" v-if="errors.has('address')">
+                  :class="{'is-invalid': errors.has('tel')}">
+                <span class="text-danger" v-if="errors.has('tel')">
                   請輸入手機號碼
                 </span>
               </div>
@@ -155,7 +154,7 @@
         });
       },
       removeCart(id) {
-        const api = `${process.env.APIPATH}/api/${process.env.MYPATH}/cart/${id}`;
+        const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart/${id}`;
         this.isLoading = true;
         this.$http.delete(api).then((response) => {
           this.getCart();
@@ -163,18 +162,23 @@
         });
       },
       creatOrder() {
-        const api = `${process.env.APIPATH}/api/${process.env.MYPATH}/order`;
+        const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/order`;
         const order = this.form;
         this.$validator.validate().then(result => {
           if (result) {
             this.$http.post(api, {data: order}).then((response) => {
+              console.log(response.data);
               if(response.data.success) {
-                this.$bus.$emit('message-push', response.data.message, 'success');
+                this.$bus.$emit('messsage:push', response.data.message, 'success');
+                console.log('success',response.data.orderId);
                 this.$router.push(`/pay/${response.data.orderId}`);
+              } else {
+                console.log(response.data.message);
+                this.$bus.$emit('messsage:push', response.data.message, 'danger');
               }
             })
           } else {
-            this.$bus.$emit('message-push', '請再次確認表單是否填寫正確', 'danger');
+            this.$bus.$emit('messsage:push', '請再次確認表單是否填寫正確', 'danger');
           }
         });
       },

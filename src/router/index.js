@@ -9,6 +9,7 @@ import CustomerCheckout from '@/components/pages/CustomerCheckout'
 import Home from '@/components/client/home'
 import ShopPage from '@/components/client/pages/shop_page'
 import CheckOutPage from '@/components/client/pages/checkout'
+import Pay from '@/components/client/pages/pay'
 
 Vue.use(Router)
 
@@ -38,7 +39,7 @@ export default new Router({
           path: 'coupons',
           name: 'coupons',
           component: Coupons,
-          // meta: {requiresAuth: true}
+          meta: {requiresAuth: true}
         },
         {
           path: 'customer_order',
@@ -70,6 +71,10 @@ export default new Router({
       name: 'CheckOutPage',
       component: CheckOutPage,
     },
-
+    {
+      path: '/pay/:order_id',
+      name: 'Pay',
+      component: Pay,
+    },
   ]
 })

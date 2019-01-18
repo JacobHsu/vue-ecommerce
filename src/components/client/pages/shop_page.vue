@@ -14,7 +14,7 @@
         <div class="row mt-3">
           <div class="col-md-6 col-lg-4 mb-4" v-for="item in filterdProducts" :key="item.id">
             <div class="card border-0 shadow-sm">
-              <div class="cover-box" style="height: 350px; background-size: cover; background-position: center"
+              <div class="cover-box" style="height: 353px; background-size: cover; background-position: center"
               :style="{backgroundImage: `url(${item.imageUrl})`}">
                 <router-link :to="{name: 'ProductPage', params: {id: item.id}}" class="cover">
                   <div class="cover-text">MORE</div>
