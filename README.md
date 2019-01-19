@@ -25,6 +25,7 @@ Documentation [Modal](https://getbootstrap.com/docs/4.2/components/modal/)  [Pag
 [Font Awesome](https://fontawesome.com/start)  [Animating Icons](https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons)    
 [vee-validate](https://baianat.github.io/vee-validate/)  
 [Unsplash](https://unsplash.com/)  
+[hexschool api](https://vue-course-api.hexschool.io/)  
 
 # gh-pages
 
