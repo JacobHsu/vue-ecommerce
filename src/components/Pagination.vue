@@ -33,7 +33,7 @@ export default {
   props: {
     pageData: {
       type: Object,
-      default: {}
+      default: () => ({})
     }
   },
   methods: {

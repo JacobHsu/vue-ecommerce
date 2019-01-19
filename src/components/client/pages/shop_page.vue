@@ -6,24 +6,19 @@
     <div class="col-md-9 mt-3">
        <loading :active.sync="isLoading"></loading>
         
-        <!-- <button class="btn btn-info ml-auto d-block" v-if="this.filter.trim() == '' && this.category == ''" 
-          @click.prevent="getData(); pageMode = !pageMode">
-          <span v-show="pageMode">返回顯示全部</span>
-          <span v-show="!pageMode">分頁顯示</span>
-        </button> -->
         <div class="row mt-3">
           <div class="col-md-6 col-lg-4 mb-4" v-for="item in filterdProducts" :key="item.id">
             <div class="card border-0 shadow-sm">
               <div class="cover-box" style="height: 353px; background-size: cover; background-position: center"
               :style="{backgroundImage: `url(${item.imageUrl})`}">
-                <router-link :to="{name: 'ProductPage', params: {id: item.id}}" class="cover">
+                <!-- <router-link :to="{name: 'ProductPage', params: {id: item.id}}" class="cover">
                   <div class="cover-text">MORE</div>
-                </router-link>
+                </router-link> -->
               </div>
               <div class="card-body">
                 <span class="badge badge-secondary float-right ml-2">{{item.category}}</span>
-                <h5 class="card-title font-weight-normal">
-                  <router-link :to="{name: 'ProductPage', params: {id: item.id}}" class="text-dark">{{item.title}}</router-link>
+                <h5 class="card-title font-weight-normal">{{item.title}}
+                  <!-- <router-link :to="{name: 'ProductPage', params: {id: item.id}}" class="text-dark">{{item.title}}</router-link> -->
                 </h5>
                 <hr>
                 <p class="card-text text-dark">{{item.content}}</p>
@@ -34,10 +29,10 @@
                 </div>
               </div>
               <div class="card-footer d-flex">
-                <router-link :to="{name: 'ProductPage', params: {id: item.id}}" 
+                <!-- <router-link :to="{name: 'ProductPage', params: {id: item.id}}" 
                   class="btn btn-outline-secondary btn-sm">
                   查看更多
-                </router-link>
+                </router-link> -->
                 <button type="button" class="btn btn-outline-danger btn-sm ml-auto"
                   @click="addToCart(item.id)">
                   <i class="fas fa-spinner fa-spin" v-if="item.id === status.loadingItem"></i>
@@ -47,7 +42,13 @@
             </div>
           </div>
         </div>
-        <Pagination v-if="pageMode" :pagination="pagination" @emitGetData="getData($event)"></Pagination>
+        <Pagination v-if="pageMode" :page-data="pagination" @changePage="getData($event)" class="d-flex justify-content-center"></Pagination>
+        <button class="btn btn-info ml-auto d-block" v-if="this.filter.trim() == '' && this.category == ''" 
+          @click.prevent="getData(); pageMode = !pageMode">
+          <span v-show="pageMode">返回顯示全部</span>
+          <span v-show="!pageMode">分頁顯示</span>
+        </button>
+
       </div>
 
   </div>
@@ -56,9 +57,11 @@
 </template>
 
 <script>
+import Pagination from '../../Pagination';
 import Sidebar from '../sidebar_client';
 export default {
   components: {
+    Pagination,
     Sidebar,
   },
   data() {
@@ -93,6 +96,7 @@ export default {
       this.$http.get(api_all).then(response => {
         console.log(response.data);
         this.allProducts = response.data.products;
+        this.pagination = response.data.pagination;
         this.isLoading = false;
       });
     },
