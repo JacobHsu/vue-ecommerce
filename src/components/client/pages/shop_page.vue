@@ -43,11 +43,11 @@
           </div>
         </div>
         <Pagination v-if="pageMode" :page-data="pagination" @changePage="getData($event)" class="d-flex justify-content-center"></Pagination>
-        <button class="btn btn-info ml-auto d-block" v-if="this.filter.trim() == '' && this.category == ''" 
+        <!-- <button class="btn btn-info ml-auto d-block" v-if="this.filter.trim() == '' && this.category == ''" 
           @click.prevent="getData(); pageMode = !pageMode">
           <span v-show="pageMode">返回顯示全部</span>
           <span v-show="!pageMode">分頁顯示</span>
-        </button>
+        </button> -->
 
       </div>
 

@@ -5,7 +5,7 @@
                 <ul class="list-inline text-center">
                 <li class="list-inline-item">© Copright 2019 JacobHsu</li>
                 <li class="list-inline-item">
-                    <a class="text-info" href="https://about.me/JacobHsu">About</a>
+                    <a class="text-info" href="https://about.me/JacobHsu" target="_blank">About</a>
                 </li>
                 </ul>
                 <p class="text-center">Made with Bootstrap4</p>
