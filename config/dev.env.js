@@ -4,6 +4,6 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  APIPATH: '"http://vue-course-api.herokuapp.com"',
+  APIPATH: '"https://vue-course-api.herokuapp.com"',
   CUSTOMPATH: '"jacobhsu"',
 })
